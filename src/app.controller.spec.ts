@@ -18,5 +18,9 @@ describe('AppController', () => {
     it('should return "Hello World!"', () => {
       expect(appController.getHello()).toBe('Hello World!');
     });
+    it('does not override env var', () => {
+      expect(process.env.NX_LOAD_DOT_ENV_FILES).toBe('false');
+      expect(process.env.TEST_VAR).toBe(undefined);
+    });
   });
 });
